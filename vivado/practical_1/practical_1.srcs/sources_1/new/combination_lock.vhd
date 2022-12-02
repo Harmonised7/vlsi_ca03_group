@@ -79,6 +79,7 @@ end component;
 component vi_ripple_5_dff is
     Port (
         CLOCK : in STD_LOGIC := '0';
+        RESET_IN : in STD_LOGIC := '0';
         Q0 : out STD_LOGIC := '0';
         Q1 : out STD_LOGIC := '0';
         Q2 : out STD_LOGIC := '0'
@@ -93,10 +94,10 @@ s3Failed <= (not sQ0 and not sQ1 and sQ2) and not (not inQ0 and inQ1 and inQ2);
 s4Failed <= (sQ0 and not sQ1 and sQ2) and not (not inQ0 and inQ1 and inQ2);
 sAnyFailed <= s0Failed or s1Failed or s2Failed or s3Failed or s4Failed;
 
-sFailReset <= not ENTER and (not sQ0 and not sQ1 and not sQ2);
-sFailedClock <= sFailReset or (not FAILED and ENTER and sAnyFailed);
+sFailReset <= not ENTER and (RESET or (not sQ0 and not sQ1 and not sQ2));
+sFailedClock <= sFailReset or RESET or (not FAILED and ENTER and sAnyFailed);
 
-states:vi_ripple_5_dff port map (ENTER, sQ0, sQ1, sQ2);
+states:vi_ripple_5_dff port map (ENTER, RESET, sQ0, sQ1, sQ2);
 failed_bit:vi_d_flip_flop port map (sAnyFailed, sFailedClock, sFailReset, FAILED);
 
 opened <= not FAILED and (sQ0 and not sQ1 and sQ2);

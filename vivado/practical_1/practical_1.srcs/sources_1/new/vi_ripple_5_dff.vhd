@@ -4,6 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity vi_ripple_5_dff is
     Port (
         CLOCK : in STD_LOGIC := '0';
+        RESET_IN : in STD_LOGIC := '0';
         Q0 : out STD_LOGIC := '0';
         Q1 : out STD_LOGIC := '0';
         Q2 : out STD_LOGIC := '0'
@@ -42,7 +43,7 @@ flip0:vi_d_flip_flop_rise port map (sQ0bar, CLOCK, RESET, sQ0, sQ0bar);
 flip1:vi_d_flip_flop_rise port map (sQ1bar, sQ0bar, RESET, sQ1, sQ1bar);
 flip2:vi_d_flip_flop_rise port map (sQ2bar, sQ1bar, RESET, sQ2, sQ2bar);
 
-RESET <= not sQ0 and sQ1 and sQ2;
+RESET <= RESET_IN or (not sQ0 and sQ1 and sQ2);
 
 Q0 <= sQ0;
 Q1 <= sQ1;

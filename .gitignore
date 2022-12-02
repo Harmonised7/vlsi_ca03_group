@@ -1,3 +1,4 @@
-*.sim
-*.runs
-.idea/*
+*.sim/
+*.runs/
+*.cache/
+*.idea/
