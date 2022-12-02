@@ -27,11 +27,20 @@ component vi_d_flip_flop is
            Qout : out STD_LOGIC := '0';
            Qbar : out STD_LOGIC := '1');
 end component;
+
+component vi_d_flip_flop_rise is
+    Port ( D : in STD_LOGIC := '0';
+           CLOCK : in STD_LOGIC := '0';
+           RESET : in STD_LOGIC := '0';
+           Qout : out STD_LOGIC := '0';
+           Qbar : out STD_LOGIC := '1');
+end component;
+
 --D CLOCK RESET Q Qbar
 begin
-flip0:vi_d_flip_flop port map (sQ0bar, CLOCK, RESET, sQ0, sQ0bar);
-flip1:vi_d_flip_flop port map (sQ1bar, sQ0bar, RESET, sQ1, sQ1bar);
-flip2:vi_d_flip_flop port map (sQ2bar, sQ1bar, RESET, sQ2, sQ2bar);
+flip0:vi_d_flip_flop_rise port map (sQ0bar, CLOCK, RESET, sQ0, sQ0bar);
+flip1:vi_d_flip_flop_rise port map (sQ1bar, sQ0bar, RESET, sQ1, sQ1bar);
+flip2:vi_d_flip_flop_rise port map (sQ2bar, sQ1bar, RESET, sQ2, sQ2bar);
 
 RESET <= not sQ0 and sQ1 and sQ2;
 

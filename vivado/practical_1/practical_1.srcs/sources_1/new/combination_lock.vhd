@@ -49,6 +49,8 @@ signal sQ0 : STD_LOGIC := '0';
 signal sQ1 : STD_LOGIC := '0';
 signal sQ2 : STD_LOGIC := '0';
 
+signal sS0 : STD_LOGIC := '1';
+
 signal s0Failed : STD_LOGIC := '0';
 signal s1Failed : STD_LOGIC := '0';
 signal s2Failed : STD_LOGIC := '0';
@@ -58,11 +60,6 @@ signal s4Failed : STD_LOGIC := '0';
 signal sAnyFailed : STD_LOGIC := '0';
 signal sFailedClock : STD_LOGIC := '0';
 signal sFailReset : STD_LOGIC := '0';
-
-component harrys_or_gate_5 is
-    Port ( A, B, C, D, E : in STD_LOGIC;
-           Z : out STD_LOGIC);
-end component;
 
 component vi_ripple_5 is
 Port (
@@ -81,23 +78,30 @@ component vi_d_flip_flop is
            Qbar : out STD_LOGIC := '1');
 end component;
 
+component vi_ripple_5_dff is
+    Port (
+        CLOCK : in STD_LOGIC := '0';
+        Q0 : out STD_LOGIC := '0';
+        Q1 : out STD_LOGIC := '0';
+        Q2 : out STD_LOGIC := '0'
+    );
+end component;
+
 begin
 s0Failed <= (sQ0 and not sQ1 and not sQ2) and not (inQ0 and not inQ1 and inQ2);
-s1Failed <= (not sQ0 and sQ1 and not sQ2) and not (not inQ0 and inQ1 and inQ2);
+s1Failed <= (not sQ0 and sQ1 and not sQ2) and not (not inQ0 and not inQ1 and inQ2);
 s2Failed <= (sQ0 and sQ1 and not sQ2) and not (inQ0 and inQ1 and not inQ2);
 s3Failed <= (not sQ0 and not sQ1 and sQ2) and not (not inQ0 and inQ1 and inQ2);
 s4Failed <= (sQ0 and not sQ1 and sQ2) and not (not inQ0 and inQ1 and inQ2);
+sAnyFailed <= s0Failed or s1Failed or s2Failed or s3Failed or s4Failed;
 
-
-sFailedClock <= not FAILED and ENTER and sAnyFailed;
 sFailReset <= not ENTER and (not sQ0 and not sQ1 and not sQ2);
+sFailedClock <= sFailReset or (not FAILED and ENTER and sAnyFailed);
+
+states:vi_ripple_5_dff port map (ENTER, sQ0, sQ1, sQ2);
+failed_bit:vi_d_flip_flop port map (sAnyFailed, sFailedClock, sFailReset, FAILED);
 
 opened <= not FAILED and not ENTER and (sQ0 and not sQ1 and sQ2);
 failed_out <= FAILED and (sQ0 and not sQ1 and sQ2);
-
-states:vi_ripple_5 port map (ENTER, sQ0, sQ1, sQ2);
-failed_bit:vi_d_flip_flop port map (sAnyFailed, sFailedClock, sFailReset, FAILED);
-anyFailed:harrys_or_gate_5 port map (s0Failed, s1Failed, s2Failed, s3Failed, s4Failed, sAnyFailed);
-
 
 end harmony_gate;

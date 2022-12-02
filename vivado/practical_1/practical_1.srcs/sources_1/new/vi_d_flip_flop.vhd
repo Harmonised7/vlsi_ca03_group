@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 12/02/2022 01:18:58 PM
--- Design Name: 
--- Module Name: vi_d_flip_flop - harmony_gate
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -49,13 +28,19 @@ test : process(D, CLOCK, RESET) is
 begin
 
 if(falling_edge(CLOCK)) then
-    Q <= D;
+    if(RESET = '1') then
+        Q <= '0';
+        Qout <= '0';
+        Qbar <= '1';
+    else
+        Q <= D;
     
-    Qout <= D;
-    Qbar <= not D;
+        Qout <= D;
+        Qbar <= not D;
+    end if;
 end if;
 
-if(RESET = '1') then
+if(rising_edge(RESET)) then
     Q <= '0';
     
     Qout <= Q;
