@@ -269,6 +269,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(610,470)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+      <a name="label" val="s4Failed"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="0" loc="(250,1030)" name="Pin">
@@ -388,6 +389,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(610,630)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+      <a name="label" val="s2Failed"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="1" loc="(480,740)" name="NOT Gate">
@@ -396,6 +398,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(610,550)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+      <a name="label" val="s3Failed"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="1" loc="(440,730)" name="NOT Gate">
@@ -410,6 +413,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(610,710)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+      <a name="label" val="s1Failed"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="0" loc="(330,1090)" name="Splitter">
@@ -479,6 +483,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(610,790)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+      <a name="label" val="s0Failed"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="0" loc="(250,1120)" name="Pin">

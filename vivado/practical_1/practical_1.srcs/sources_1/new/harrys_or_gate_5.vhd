@@ -22,11 +22,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity harrys_or_gate_5 is
-    Port ( A : in STD_LOGIC;
-           B : in STD_LOGIC;
-           C : in STD_LOGIC;
-           D : in STD_LOGIC;
-           E : in STD_LOGIC;
+    Port ( A, B, C, D, E : in STD_LOGIC;
            Z : out STD_LOGIC);
 end harrys_or_gate_5;
 
