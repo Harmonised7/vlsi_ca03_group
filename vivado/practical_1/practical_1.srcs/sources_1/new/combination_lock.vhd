@@ -49,8 +49,6 @@ signal sQ0 : STD_LOGIC := '0';
 signal sQ1 : STD_LOGIC := '0';
 signal sQ2 : STD_LOGIC := '0';
 
-signal sS0 : STD_LOGIC := '1';
-
 signal s0Failed : STD_LOGIC := '0';
 signal s1Failed : STD_LOGIC := '0';
 signal s2Failed : STD_LOGIC := '0';
@@ -101,7 +99,7 @@ sFailedClock <= sFailReset or (not FAILED and ENTER and sAnyFailed);
 states:vi_ripple_5_dff port map (ENTER, sQ0, sQ1, sQ2);
 failed_bit:vi_d_flip_flop port map (sAnyFailed, sFailedClock, sFailReset, FAILED);
 
-opened <= not FAILED and not ENTER and (sQ0 and not sQ1 and sQ2);
+opened <= not FAILED and (sQ0 and not sQ1 and sQ2);
 failed_out <= FAILED and (sQ0 and not sQ1 and sQ2);
 
 end harmony_gate;
