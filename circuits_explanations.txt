@@ -1,0 +1,20 @@
+The state machine has 6 states.
+These are represented by the modulus 5 counter.
+The Modulus 5 counter is a 3 bit adder that utilizes T flip flops for each of the bits.
+These T flip flops are chained together to form a binary adder.
+When the counter reaches a decimal 6 (binary 110), it immediately goes back to decimal 0 (binary 000).
+This effectively gives us a 0 to 5 counter.
+
+The States are decoded using AND gates labeled S0 to S5.
+
+The Inputs are decoded, checking if the previous state has failed labeled S0F to S5F (F for fail)
+
+Everytime the enter/clock is pulsed, the sate machine increments.
+The input values are matched against the new state, checking if the previous state has failed.
+If it has failed, the FAIL D flip flop will go to logical high on a falling edge (To give it time to process the state/input matching, which occurs after going to a logical high, caused by the clock).
+
+Once State 5 is reached
+    If the fail bit went high, the Open pin remains a logical low.
+    If the fail bit remained low, the Open pin goes to a logical high.
+
+To close the lock again, the enter enter/clock must be pulsed again to return to State 0, which will set fail to a logical low, which will cause the Open pin to go to a logical low.
