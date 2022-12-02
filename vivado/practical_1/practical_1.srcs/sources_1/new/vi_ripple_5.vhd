@@ -38,17 +38,17 @@ signal sQ0 : std_logic := '0';
 signal sQ1 : std_logic := '0';
 signal sQ2 : std_logic := '0';
 
-component vi_flip_flop is
+component vi_t_flip_flop is
     Port ( FLIP, RESET : in STD_LOGIC;
            Q : out STD_LOGIC);
 end component;
 
 begin
-flip0:vi_flip_flop port map (CLOCK, RESET, sQ0);
-flip1:vi_flip_flop port map (sQ0, RESET, sQ1);
-flip2:vi_flip_flop port map (sQ1, RESET, sQ2);
+flip0:vi_t_flip_flop port map (CLOCK, RESET, sQ0);
+flip1:vi_t_flip_flop port map (sQ0, RESET, sQ1);
+flip2:vi_t_flip_flop port map (sQ1, RESET, sQ2);
 
-RESET <= Q0 and not Q1 and Q2;
+RESET <= not sQ0 and sQ1 and sQ2;
 
 Q0 <= sQ0;
 Q1 <= sQ1;
