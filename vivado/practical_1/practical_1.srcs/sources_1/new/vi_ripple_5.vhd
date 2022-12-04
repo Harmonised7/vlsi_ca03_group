@@ -22,16 +22,16 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity vi_ripple_5 is
+entity vi_ripple_6 is
     Port (
         CLOCK : in STD_LOGIC := '0';
         Q0 : out STD_LOGIC := '0';
         Q1 : out STD_LOGIC := '0';
         Q2 : out STD_LOGIC := '0'
     );
-end vi_ripple_5;
+end vi_ripple_6;
 
-architecture harmony_gate of vi_ripple_5 is
+architecture harmony_gate of vi_ripple_6 is
 
 signal RESET : std_logic := '0';
 signal sQ0 : std_logic := '0';

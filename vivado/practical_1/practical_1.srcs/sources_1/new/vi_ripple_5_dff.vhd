@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity vi_ripple_5_dff is
+entity vi_ripple_6_dff is
     Port (
         CLOCK : in STD_LOGIC := '0';
         RESET_IN : in STD_LOGIC := '0';
@@ -9,9 +9,9 @@ entity vi_ripple_5_dff is
         Q1 : out STD_LOGIC := '0';
         Q2 : out STD_LOGIC := '0'
     );
-end vi_ripple_5_dff;
+end vi_ripple_6_dff;
 
-architecture harmony_gate of vi_ripple_5_dff is
+architecture harmony_gate of vi_ripple_6_dff is
 
 signal RESET : std_logic := '0';
 signal sQ0 : std_logic := '0';
@@ -20,14 +20,6 @@ signal sQ1 : std_logic := '0';
 signal sQ1bar : std_logic := '0';
 signal sQ2 : std_logic := '0';
 signal sQ2bar : std_logic := '0';
-
-component vi_d_flip_flop is
-    Port ( D : in STD_LOGIC := '0';
-           CLOCK : in STD_LOGIC := '0';
-           RESET : in STD_LOGIC := '0';
-           Qout : out STD_LOGIC := '0';
-           Qbar : out STD_LOGIC := '1');
-end component;
 
 component vi_d_flip_flop_rise is
     Port ( D : in STD_LOGIC := '0';
@@ -50,3 +42,5 @@ Q1 <= sQ1;
 Q2 <= sQ2;
 
 end harmony_gate;
+
+

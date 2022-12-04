@@ -108,8 +108,15 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(490,990)" to="(530,990)"/>
     <wire from="(530,860)" to="(680,860)"/>
     <wire from="(670,960)" to="(670,1000)"/>
-    <wire from="(540,820)" to="(560,820)"/>
     <wire from="(380,850)" to="(410,850)"/>
+    <wire from="(540,820)" to="(560,820)"/>
+    <wire from="(540,660)" to="(560,660)"/>
+    <wire from="(540,740)" to="(560,740)"/>
+    <wire from="(560,480)" to="(580,480)"/>
+    <wire from="(560,560)" to="(580,560)"/>
+    <wire from="(560,640)" to="(580,640)"/>
+    <wire from="(560,720)" to="(580,720)"/>
+    <wire from="(560,800)" to="(580,800)"/>
     <wire from="(380,730)" to="(410,730)"/>
     <wire from="(380,690)" to="(410,690)"/>
     <wire from="(380,570)" to="(410,570)"/>
@@ -117,13 +124,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(380,490)" to="(410,490)"/>
     <wire from="(540,500)" to="(560,500)"/>
     <wire from="(540,580)" to="(560,580)"/>
-    <wire from="(560,480)" to="(580,480)"/>
-    <wire from="(560,560)" to="(580,560)"/>
-    <wire from="(560,640)" to="(580,640)"/>
-    <wire from="(560,720)" to="(580,720)"/>
-    <wire from="(560,800)" to="(580,800)"/>
-    <wire from="(540,660)" to="(560,660)"/>
-    <wire from="(540,740)" to="(560,740)"/>
     <wire from="(330,840)" to="(360,840)"/>
     <wire from="(330,760)" to="(360,760)"/>
     <wire from="(330,680)" to="(360,680)"/>
@@ -219,58 +219,42 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(960,830)" to="(970,830)"/>
     <wire from="(870,860)" to="(880,860)"/>
     <wire from="(870,860)" to="(870,910)"/>
-    <comp lib="1" loc="(530,620)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-      <a name="label" val="S3"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
     <comp lib="1" loc="(440,630)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(480,670)" name="NOT Gate">
+    <comp lib="1" loc="(440,490)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(440,850)" name="NOT Gate">
+    <comp lib="4" loc="(920,860)" name="D Flip-Flop">
+      <a name="trigger" val="falling"/>
+      <a name="label" val="FAIL"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(1000,840)" name="AND Gate">
+    <comp lib="1" loc="(440,530)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(360,760)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(360,600)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="1" loc="(610,790)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+      <a name="label" val="S01F"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="0" loc="(360,680)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="0" loc="(360,560)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="1" loc="(530,860)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-      <a name="label" val="S0"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(530,1070)" name="Probe">
+    <comp lib="0" loc="(330,1090)" name="Splitter">
       <a name="facing" val="west"/>
-      <a name="label" val="Input"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </comp>
-    <comp lib="1" loc="(480,540)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(610,470)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-      <a name="label" val="s4Failed"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(250,1030)" name="Pin">
+    <comp lib="0" loc="(250,1090)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="reset"/>
+      <a name="label" val="inb1"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="0" loc="(250,1000)" name="Pin">
@@ -278,46 +262,114 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="enter | clk"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
+    <comp lib="1" loc="(720,990)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="label" val="S0R"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
     <comp lib="0" loc="(360,800)" name="Splitter">
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="1" loc="(1000,880)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
+    <comp lib="1" loc="(440,820)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(360,640)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
     </comp>
     <comp lib="1" loc="(540,580)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
       <a name="label" val="S3F"/>
     </comp>
-    <comp lib="1" loc="(530,540)" name="AND Gate">
+    <comp lib="1" loc="(440,710)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(440,850)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(480,540)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(540,660)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
-      <a name="label" val="S4"/>
+      <a name="label" val="S2F"/>
+    </comp>
+    <comp lib="0" loc="(250,1120)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="inb2"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(610,710)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="label" val="S12F"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(860,910)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+      <a name="label" val="FCLK"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(1040,840)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Fail"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(610,470)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="label" val="S45F"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(540,740)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+      <a name="label" val="S1F"/>
+    </comp>
+    <comp lib="1" loc="(610,630)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="label" val="S23F"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(360,680)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(1040,880)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Open"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(480,860)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(440,570)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(360,560)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </comp>
     <comp lib="1" loc="(440,460)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(720,990)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
+    <comp lib="0" loc="(250,1060)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="inb0"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(770,770)" name="OR Gate">
-      <a name="size" val="70"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(530,780)" name="AND Gate">
+    <comp lib="1" loc="(540,820)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
-      <a name="label" val="S1"/>
+      <a name="label" val="S0F"/>
+    </comp>
+    <comp lib="1" loc="(440,790)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="1" loc="(530,460)" name="AND Gate">
@@ -329,118 +381,88 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(440,870)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(440,490)" name="NOT Gate">
+    <comp lib="0" loc="(360,720)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="1" loc="(640,960)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp loc="(480,1000)" name="ripple_mod_5"/>
+    <comp lib="0" loc="(360,480)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="1" loc="(1000,840)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="label" val="Fout"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(530,1070)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="Input"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(530,700)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+      <a name="label" val="S2"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(360,640)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </comp>
     <comp lib="1" loc="(440,690)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="0" loc="(360,840)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="0" loc="(360,720)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
+    <comp lib="1" loc="(610,550)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="label" val="S34F"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="1" loc="(540,500)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
       <a name="label" val="S4F"/>
     </comp>
-    <comp lib="0" loc="(1040,880)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Open"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(250,1090)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="inb1"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(360,880)" name="Splitter">
+    <comp lib="0" loc="(360,840)" name="Splitter">
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="0" loc="(250,1060)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="inb0"/>
+    <comp lib="1" loc="(770,770)" name="OR Gate">
+      <a name="size" val="70"/>
+      <a name="label" val="AnyFail"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="4" loc="(920,860)" name="D Flip-Flop">
-      <a name="trigger" val="falling"/>
-      <a name="label" val="FAIL"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp loc="(480,1000)" name="ripple_mod_5"/>
-    <comp lib="0" loc="(360,760)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="1" loc="(440,790)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(610,630)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-      <a name="label" val="s2Failed"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(480,740)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(610,550)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-      <a name="label" val="s3Failed"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(440,730)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(440,570)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(480,860)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(610,710)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-      <a name="label" val="s1Failed"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(330,1090)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
     </comp>
     <comp lib="0" loc="(360,520)" name="Splitter">
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="1" loc="(540,660)" name="NAND Gate">
+    <comp lib="1" loc="(530,860)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
-      <a name="label" val="S2F"/>
-    </comp>
-    <comp lib="1" loc="(440,710)" name="NOT Gate">
+      <a name="label" val="S0"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="0" loc="(360,600)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="0" loc="(360,480)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="1" loc="(440,820)" name="NOT Gate">
+    <comp lib="0" loc="(250,1030)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="reset"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(440,530)" name="NOT Gate">
+    <comp lib="1" loc="(480,670)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(480,740)" name="NOT Gate">
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(530,620)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+      <a name="label" val="S3"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="0" loc="(530,990)" name="Probe">
@@ -449,55 +471,38 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(540,820)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-      <a name="label" val="S0F"/>
-    </comp>
-    <comp lib="1" loc="(530,700)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-      <a name="label" val="S2"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(860,910)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(640,960)" name="NOT Gate">
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
     <comp lib="1" loc="(480,780)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="1" loc="(610,790)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-      <a name="label" val="s0Failed"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(250,1120)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="inb2"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(540,740)" name="NAND Gate">
+    <comp lib="1" loc="(1000,880)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
-      <a name="label" val="S1F"/>
+      <a name="label" val="Oout"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="0" loc="(1040,840)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Fail"/>
+    <comp lib="1" loc="(530,540)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+      <a name="label" val="S4"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="1" loc="(530,780)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+      <a name="label" val="S1"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(360,880)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="1" loc="(440,730)" name="NOT Gate">
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
   </circuit>
   <circuit name="ripple_mod_5">
     <a name="circuit" val="ripple_mod_5"/>
-    <a name="clabel" val=""/>
+    <a name="clabel" val="5M"/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <wire from="(540,230)" to="(590,230)"/>
@@ -548,38 +553,38 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(440,280)" to="(510,280)"/>
     <wire from="(440,380)" to="(510,380)"/>
     <wire from="(500,220)" to="(570,220)"/>
-    <comp lib="4" loc="(500,220)" name="T Flip-Flop">
-      <a name="label" val="Sb0"/>
+    <comp lib="1" loc="(440,520)" name="AND Gate">
+      <a name="facing" val="west"/>
+      <a name="inputs" val="3"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="4" loc="(500,420)" name="T Flip-Flop">
-      <a name="label" val="Sb2"/>
+    <comp lib="0" loc="(660,210)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </comp>
+    <comp lib="0" loc="(430,240)" name="Constant"/>
     <comp lib="0" loc="(90,220)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="CLK"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="4" loc="(500,220)" name="T Flip-Flop">
+      <a name="label" val="Sb0"/>
+    </comp>
+    <comp lib="1" loc="(510,500)" name="NOT Gate">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="4" loc="(500,420)" name="T Flip-Flop">
+      <a name="label" val="Sb2"/>
     </comp>
     <comp lib="1" loc="(370,290)" name="OR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
-    <comp lib="0" loc="(430,240)" name="Constant"/>
-    <comp lib="0" loc="(660,210)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
     <comp lib="4" loc="(500,320)" name="T Flip-Flop">
       <a name="label" val="Sb1"/>
-    </comp>
-    <comp lib="1" loc="(440,520)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="inputs" val="3"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="1" loc="(510,500)" name="NOT Gate">
-      <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(90,280)" name="Pin">
       <a name="tristate" val="false"/>
@@ -616,9 +621,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(510,280)" to="(590,280)"/>
     <wire from="(520,290)" to="(520,310)"/>
     <wire from="(410,290)" to="(480,290)"/>
-    <comp lib="0" loc="(410,320)" name="Pin">
+    <comp lib="0" loc="(410,350)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="inb1"/>
+      <a name="label" val="inb2"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp lib="0" loc="(410,260)" name="Pin">
@@ -626,19 +631,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="reset"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
+    <comp lib="0" loc="(410,320)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="inb1"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
     <comp lib="0" loc="(410,290)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="inb0"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(410,350)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="inb2"/>
-      <a name="labelfont" val="Comic Mono plain 12"/>
-    </comp>
-    <comp lib="0" loc="(410,230)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="enter | clk"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
     <comp loc="(510,280)" name="main"/>
@@ -650,6 +650,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(590,310)" name="Probe">
       <a name="facing" val="west"/>
       <a name="label" val="Open"/>
+      <a name="labelfont" val="Comic Mono plain 12"/>
+    </comp>
+    <comp lib="0" loc="(410,230)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="enter | clk"/>
       <a name="labelfont" val="Comic Mono plain 12"/>
     </comp>
   </circuit>
