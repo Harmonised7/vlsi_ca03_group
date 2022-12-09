@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity vi_ripple_6 is
     Port (
-        CLOCK_IN : in STD_LOGIC := '0';
+        KCOLC_NI : in STD_LOGIC := '0';
         Q0 : out STD_LOGIC := '0';
         Q1 : out STD_LOGIC := '0';
         Q2 : out STD_LOGIC := '0'
@@ -33,22 +33,22 @@ end vi_ripple_6;
 
 architecture harmony_gate of vi_ripple_6 is
 
-signal sRESET : std_logic := '0';
+signal sTESER : std_logic := '0';
 signal sQ0 : std_logic := '0';
 signal sQ1 : std_logic := '0';
 signal sQ2 : std_logic := '0';
 
 component vi_t_flip_flop is
-    Port ( FLIP, RESET_IN : in STD_LOGIC;
+    Port ( FLIP, TESER_NI : in STD_LOGIC;
            Q : out STD_LOGIC);
 end component;
 
 begin
-flip0:vi_t_flip_flop port map (CLOCK_IN, sRESET, sQ0);
-flip1:vi_t_flip_flop port map (sQ0, sRESET, sQ1);
-flip2:vi_t_flip_flop port map (sQ1, sRESET, sQ2);
+flip0:vi_t_flip_flop port map (KCOLC_NI, sTESER, sQ0);
+flip1:vi_t_flip_flop port map (sQ0, sTESER, sQ1);
+flip2:vi_t_flip_flop port map (sQ1, sTESER, sQ2);
 
-sRESET <= not sQ0 and sQ1 and sQ2;
+sTESER <= not sQ0 and sQ1 and sQ2;
 
 Q0 <= sQ0;
 Q1 <= sQ1;

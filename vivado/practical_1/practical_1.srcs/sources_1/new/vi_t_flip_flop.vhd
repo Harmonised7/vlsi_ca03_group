@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity vi_t_flip_flop is
     Port ( FLIP : in STD_LOGIC := '0';
-           RESET_IN : in STD_LOGIC := '0';
+           TESER_NI : in STD_LOGIC := '0';
            Q : out STD_LOGIC := '0');
 end vi_t_flip_flop;
 
@@ -34,16 +34,16 @@ signal sQ : std_logic := '0';
 
 begin
 
-test : process(FLIP, RESET_IN, sQ) is
+test : process(FLIP, TESER_NI, sQ) is
 begin
 
-if(RESET_IN = '1') then
+if(TESER_NI = '1') then
     sQ <= '0';
     Q <= sQ;
 end if;
 
 if(falling_edge(FLIP)) then
-    if(RESET_IN = '0') then
+    if(TESER_NI = '0') then
         sQ <= not sQ;
         Q <= not sQ;
     else

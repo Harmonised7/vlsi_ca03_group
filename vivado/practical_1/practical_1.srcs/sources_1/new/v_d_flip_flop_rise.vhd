@@ -12,8 +12,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity vi_d_flip_flop_rise is
     Port ( D : in STD_LOGIC := '0';
-           CLOCK_IN : in STD_LOGIC := '0';
-           RESET_IN : in STD_LOGIC := '0';
+           KCOLC_NI : in STD_LOGIC := '0';
+           TESER_NI : in STD_LOGIC := '0';
            Qout : out STD_LOGIC := '0';
            Qbar : out STD_LOGIC := '1');
 end vi_d_flip_flop_rise;
@@ -24,17 +24,17 @@ signal Q : STD_LOGIC := '0';
 
 begin
 
-test : process(D, CLOCK_IN, RESET_IN) is
+test : process(D, KCOLC_NI, TESER_NI) is
 begin
 
-if(rising_edge(CLOCK_IN)) then
+if(rising_edge(KCOLC_NI)) then
     Q <= D;
     
     Qout <= D;
     Qbar <= not D;
 end if;
 
-if(RESET_IN = '1') then
+if(TESER_NI = '1') then
     Q <= '0';
     
     Qout <= Q;
